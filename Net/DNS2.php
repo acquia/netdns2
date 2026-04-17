@@ -325,17 +325,6 @@ class Net_DNS2
         //
         if (is_array($nameservers)) {
 
-            //
-            // make sure all the name servers are IP addresses (either v4 or v6)
-            //
-            foreach($nameservers as $value) {
-
-                if ( (self::isIPv4($value) == false) && (self::isIPv6($value) == false) ) {
-
-                    throw new Net_DNS2_Exception('invalid nameserver entry: ' . $value, Net_DNS2_Lookups::E_NS_INVALID_ENTRY);
-                }
-            }
-
             $this->nameservers = $nameservers;
 
         } else {
